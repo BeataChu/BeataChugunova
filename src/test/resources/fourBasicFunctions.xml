@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="basicFunctions">
+
+    <test name="decreasingFunctions">
+        <classes>
+            <class name="hw1.Addition"/>
+            <class name="hw1.Multiplication"/>
+            <class name="hw1.Subtraction"/>
+            <class name="hw1.Division"/>
+
+        </classes>
+    </test>
+</suite>

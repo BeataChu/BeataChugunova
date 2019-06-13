@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="multiplyAndDivide">
+
+    <test name="complexFunctions">
+        <classes>
+            <class name="hw1.Multiplication">
+                <methods>
+                    <include name="multiplicationTest"/>
+                </methods>
+            </class>
+
+            <class name="hw1.Division">
+                <methods>
+                    <include name="divisionTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

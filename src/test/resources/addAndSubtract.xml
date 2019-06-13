@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="addAndSubtract">
+
+    <test name="simpleFunctions">
+        <classes>
+            <class name="hw1.Addition">
+                <methods>
+                    <include name="additionTest"/>
+                </methods>
+            </class>
+
+            <class name="hw1.Subtraction">
+                <methods>
+                    <include name="subtractionTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
