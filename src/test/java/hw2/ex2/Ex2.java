@@ -22,8 +22,10 @@ public class Ex2 extends BaseTest {
 
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
+        // TODO Do we have posibility avoid using this attribute index='3'?
         service = driver.findElement(By.cssSelector(".sidebar-menu .menu-title[index='3']"));
         service.click();
+        // TODO Do we have posibility avoid using this attribute index='3'?
         utilities.itemsAreAllPresentInSection(LocatorType.CSS, ".sidebar-menu .menu-title[index='3'] ul a", new ArrayList<String>(Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements")));
 
         //7. Open through the header menu Service -> Different Elements Page
@@ -46,13 +48,16 @@ public class Ex2 extends BaseTest {
         utilities.itemIsDisplayed(LocatorType.NAME, "log-sidebar");
 
         //11. Select checkboxes Water, Wind
+        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication?
         utilities.selectItemAndAssertItemSelected(LocatorType.XPATH, "//label[contains(string(),'Water')]/input", true);
+        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication?
         utilities.selectItemAndAssertItemSelected(LocatorType.XPATH, "//label[contains(string(),'Wind')]/input", true);
 
         //12. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
         utilities.linesOfTheLogReflectActionsInCheckboxes(LocatorType.CLASS_NAME, "label-checkbox", "./input");
 
         //13. Select radio Selen
+        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication?
         utilities.selectItemAndAssertItemSelected(LocatorType.XPATH, "//label[contains(string(),'Selen')]/input", true);
 
         //14. Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
@@ -66,7 +71,9 @@ public class Ex2 extends BaseTest {
         utilities.linesOfTheLogReflectActionsInCheckboxes(LocatorType.CSS, ".colors>.uui-form-element", "./option");
 
         //17. Unselect and assert checkboxes Water, Wind
+        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication?
         utilities.selectItemAndAssertItemSelected(LocatorType.XPATH, "//label[contains(string(),'Water')]/input", false);
+        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication?
         utilities.selectItemAndAssertItemSelected(LocatorType.XPATH, "//label[contains(string(),'Wind')]/input", false);
 
         //18. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
