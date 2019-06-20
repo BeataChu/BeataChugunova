@@ -15,14 +15,14 @@ public class Ex2 extends BaseTest {
     public void exercise2Test() {
 
         //5. Click on "Service" subcategory in the header and check that drop down contains options
-        WebElement service = utilities.findOne(LocatorType.CSS, ".uui-header .m-l8 .dropdown-toggle");
+        WebElement service = driver.findElement(By.cssSelector(".uui-header .m-l8 .dropdown-toggle"));
         service.click();
 
         utilities.itemsAreAllPresentInSection(LocatorType.CSS, ".uui-header .m-l8 .dropdown-menu a", new ArrayList<String>(Arrays.asList("SUPPORT", "DATES", "COMPLEX TABLE", "SIMPLE TABLE", "TABLE WITH PAGES", "DIFFERENT ELEMENTS")));
 
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
-        service = utilities.findOne(LocatorType.CSS, ".sidebar-menu .menu-title[index='3']");
+        service = driver.findElement(By.cssSelector(".sidebar-menu .menu-title[index='3']"));
         service.click();
         utilities.itemsAreAllPresentInSection(LocatorType.CSS, ".sidebar-menu .menu-title[index='3'] ul a", new ArrayList<String>(Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements")));
 

@@ -2,6 +2,7 @@ package hw2.ex1;
 
 import hw2.BaseTest;
 import hw2.LocatorType;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class Ex1 extends BaseTest {
         utilities.itemIsDisplayedAndHaveProperText(LocatorType.NAME, "jdi-text", "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
         //10. Assert that there is an iframe in the center of the page
-        assertNotNull(utilities.findOne(LocatorType.ID, "iframe"));
+        assertNotNull(driver.findElement(By.id("iframe")));
 
         //11.Switch to the iframe and check that there is Epam logo in the left top conner of iframe and
         //12.Switch to original window back
