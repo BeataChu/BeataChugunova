@@ -49,6 +49,7 @@
             </properties>
         </profile>
 
+        <!-- TODO Why do you need 2 profiles for HW2? -->
         <profile>
             <id>hw2-exercise1</id>
             <activation>

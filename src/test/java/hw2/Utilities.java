@@ -79,6 +79,7 @@ public class Utilities {
     public void itemIsDisplayedAndHaveProperText(LocatorType type, String locator, String text) {
         WebElement item = findOne(type, locator);
         assertTrue(item.isDisplayed());
+        // TODO It could be simplified to assertEquals
         assertTrue(item.getText().equals(text));
     }
 
@@ -90,6 +91,7 @@ public class Utilities {
 
     public void itemIsALinkWithProperURL(LocatorType type, String locator, String expectedURL) {
         WebElement item = findOne(type, locator);
+        // TODO It could be simplified to assertEquals
         assertTrue(item.getAttribute("href").equals(expectedURL));
     }
 
@@ -134,6 +136,7 @@ public class Utilities {
             case CSS: return driver.findElement(By.cssSelector(locator));
             case XPATH: return driver.findElement(By.xpath(locator));
         }
+        // TODO I suggest here throw correct exception
         return null;
     }
 
@@ -147,6 +150,7 @@ public class Utilities {
             case CSS: return driver.findElements(By.cssSelector(locator));
             case XPATH: return driver.findElements(By.xpath(locator));
         }
+        // TODO I suggest here throw correct exception
         return null;
     }
 

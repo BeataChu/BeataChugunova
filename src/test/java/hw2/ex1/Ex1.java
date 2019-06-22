@@ -12,6 +12,7 @@ import static org.testng.Assert.assertNotNull;
 
 public class Ex1 extends BaseTest {
 
+    // TODO Please format code according Java Code Convention
     @Test
     public void exercise1Test() {
 
@@ -22,6 +23,7 @@ public class Ex1 extends BaseTest {
         utilities.itemsAreInProperQuantityAndContainProperTexts(LocatorType.CSS, "header .nav>li", new ArrayList<String>(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS")));
 
         //7. Assert that there are 4 images on the Index Page and they are displayed
+        // TODO Should be third parameter empty? May be it will be better if you rewrite this method a bit?
         utilities.itemsAreInProperQuantityAndContainProperTexts(LocatorType.CSS, ".uui-main-container .icons-benefit", new ArrayList<String>(Arrays.asList("", "", "", "")));
 
         //8. Assert that there are 4 texts on the Index Page under icons and they have proper text
