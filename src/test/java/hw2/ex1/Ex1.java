@@ -12,7 +12,7 @@ import static org.testng.Assert.assertNotNull;
 
 public class Ex1 extends BaseTest {
 
-    // TODO Please format code according to Java Code Convention - fixed?
+    // TODO Please format code according to Java Code Convention (length line of code)
     @Test
     public void exerciseOneTest() {
         checkLogin();
@@ -24,7 +24,6 @@ public class Ex1 extends BaseTest {
         utilities.itemsAreInProperQuantityAndContainProperTexts(LocatorType.CSS, "header .nav>li", new ArrayList<String>(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS")));
 
         //7. Assert that there are 4 images on the Index Page and they are displayed
-        // TODO Should be third parameter empty? May be it will be better if you rewrite this method a bit? - fixed
         utilities.itemsOfATypeExistInProperQuantity(LocatorType.CSS, ".uui-main-container .icons-benefit", 4);
 
         //8. Assert that there are 4 texts on the Index Page under icons and they have proper text
