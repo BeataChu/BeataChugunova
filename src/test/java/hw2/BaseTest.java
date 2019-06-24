@@ -8,20 +8,17 @@ import java.nio.file.Paths;
 
 public class BaseTest {
 
-    // TODO Why these fields are public? - fixed
     protected Utilities utilities;
     protected WebDriver driver;
 
     @BeforeSuite
     public void setUpDriverPath() {
-        // TODO For the HW2 I ask you do not use WebDriverManager - fixed
         System.setProperty("webdriver.chrome.driver",
                 Paths.get("src/test/resources/driver/chromedriver.exe")
                         .toAbsolutePath().toString());
     }
 
     @BeforeMethod
-    //TODO Why driver initialization located in the BeforeSuite? - fixed
     public void setUp() {
         driver = new ChromeDriver();
         utilities = new Utilities(driver);
@@ -29,9 +26,6 @@ public class BaseTest {
         //1. Open test site by URL
         driver.get("https://epam.github.io/JDI");
     }
-
-    // TODO Why this method has @Test annotation? - fixed
-    // TODO Are you sure that this test will be running before all others? - fixed
 
     public void checkLogin() {
 
@@ -47,7 +41,6 @@ public class BaseTest {
 
     @AfterMethod
     //1.17 and 2.19 Close browser
-    // TODO Why close in AfterSuites? - fixed
     public void tearDown() {
         driver.close();
     }

@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 public class Ex2 extends BaseTest {
 
+    // TODO Please format code according to Java Code Convention (length line of code)
     @Test
     public void exerciseTwoTest() {
 
@@ -26,13 +27,13 @@ public class Ex2 extends BaseTest {
 
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
-        // TODO Do we have posibility avoid using this attribute index='3'? - fixed
         service = driver.findElement(By.xpath("//ul[@class = 'sidebar-menu']//*[text() = 'Service']"));
+        // TODO I do not get this sout
         System.out.println("31");
         service.click();
+        // TODO I do not get this sout
         System.out.println("32");
 
-        // TODO Do we have posibility avoid using this attribute index='3'? - fixed
         utilities.itemsAreAllPresentInSection(LocatorType.XPATH, "//li[@class='menu-title' and contains(.//span,'Service')]//li//span", sideMenuItems);
 
         //7. Open through the header menu Service -> Different Elements Page
@@ -56,7 +57,6 @@ public class Ex2 extends BaseTest {
 
 
         //11. Select checkboxes Water, Wind
-        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication? - fixed
 
         String buttonsTemplate = "//label[contains(string(),'%s')]/input";
         String water = String.format(buttonsTemplate, "Water");
@@ -64,14 +64,12 @@ public class Ex2 extends BaseTest {
 
 
         utilities.selectItemAndAssertItemSelected(water, true);
-        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication? - fixed
         utilities.selectItemAndAssertItemSelected(wind, true);
 
         //12. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
         utilities.linesOfTheLogReflectActionsInCheckboxes(LocatorType.CLASS_NAME, "label-checkbox", "./input");
 
         //13. Select radio Selen
-        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication? - fixed
         String selen = String.format(buttonsTemplate, "Selen");
         utilities.selectItemAndAssertItemSelected(selen, true);
 
@@ -86,9 +84,7 @@ public class Ex2 extends BaseTest {
         utilities.linesOfTheLogReflectActionsInCheckboxes(LocatorType.CSS, ".colors>.uui-form-element", "./option");
 
         //17. Unselect and assert checkboxes Water, Wind
-        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication? - fixed
         utilities.selectItemAndAssertItemSelected(water, false);
-        // TODO Is there any way to simplify input parameter for this method and avoid locators duplication? - fixed
         utilities.selectItemAndAssertItemSelected(wind, false);
 
         //18. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.

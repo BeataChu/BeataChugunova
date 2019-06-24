@@ -79,7 +79,6 @@ public class Utilities {
     public void itemIsDisplayedAndHaveProperText(LocatorType type, String locator, String text) {
         WebElement item = findOne(type, locator);
         assertTrue(item.isDisplayed());
-        // TODO It could be simplified to assertEquals - fixed
         assertEquals(item.getText(),text);
     }
 
@@ -91,7 +90,6 @@ public class Utilities {
 
     public void itemIsALinkWithProperURL(LocatorType type, String locator, String expectedURL) {
         WebElement item = findOne(type, locator);
-        // TODO It could be simplified to assertEquals - fixed
         assertEquals(item.getAttribute("href"),expectedURL);
     }
 
@@ -146,7 +144,6 @@ public class Utilities {
                 default:
                     return null;
             }
-            // TODO I suggest here throw correct exception - fixed
         } catch (NoSuchElementException nsee) {
             throw new NoSuchElementException(
                     String.format("Unable to find element by type %s and locator %s", type, locator));
@@ -173,7 +170,6 @@ public class Utilities {
                 default:
                     return null;
             }
-            // TODO I suggest here throw correct exception - fixed
         } catch (NoSuchElementException nsee) {
             throw new NoSuchElementException(
                     String.format("Unable to find element by type %s and locator %s", type, locator));
