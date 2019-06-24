@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -50,9 +51,7 @@ public class Utilities {
         List<WebElement> elements = findList(type, locator);
         List<String> actualList = new ArrayList<>();
         for (WebElement element : elements) {
-            if (element.isDisplayed()) {
-                actualList.add(element.getText());
-            }
+            actualList.add(element.getText());
         }
         //at the same time we check here both quantity and content of list elements
         assertEquals(actualList, expectedList);
@@ -63,8 +62,9 @@ public class Utilities {
         List<String> actualList = new ArrayList<>();
 
         for (WebElement element : elements) {
-            if (expectedList.contains(element.getText())) {
-                actualList.add(element.getText());
+            String itemText = element.getText().toLowerCase().trim();
+            if (expectedList.contains(itemText)) {
+                actualList.add(itemText);
             }
         }
         //at the same time we check here both quantity and content of list elements
@@ -79,8 +79,8 @@ public class Utilities {
     public void itemIsDisplayedAndHaveProperText(LocatorType type, String locator, String text) {
         WebElement item = findOne(type, locator);
         assertTrue(item.isDisplayed());
-        // TODO It could be simplified to assertEquals
-        assertTrue(item.getText().equals(text));
+        // TODO It could be simplified to assertEquals - fixed
+        assertEquals(item.getText(),text);
     }
 
     public void switchToFrameCheckLogoAndSwitchBack(String frameName, LocatorType type, String locator){
@@ -91,12 +91,12 @@ public class Utilities {
 
     public void itemIsALinkWithProperURL(LocatorType type, String locator, String expectedURL) {
         WebElement item = findOne(type, locator);
-        // TODO It could be simplified to assertEquals
-        assertTrue(item.getAttribute("href").equals(expectedURL));
+        // TODO It could be simplified to assertEquals - fixed
+        assertEquals(item.getAttribute("href"),expectedURL);
     }
 
-    public void selectItemAndAssertItemSelected(LocatorType type, String locator, boolean isSelected){
-        WebElement item = findOne(type, locator);
+    public void selectItemAndAssertItemSelected(String locator, boolean isSelected){
+        WebElement item = driver.findElement(By.xpath(locator));
         item.click();
         assertEquals(item.isSelected(), isSelected);
     }
@@ -126,32 +126,58 @@ public class Utilities {
 
 
         //methods to obtain WebElements
-    public WebElement findOne(LocatorType type, String locator){
-        switch (type) {
-            case NAME: return driver.findElement(By.name(locator));
-            case CLASS_NAME: return driver.findElement(By.className(locator));
-            case ID: return driver.findElement(By.id(locator));
-            case LINK: return driver.findElement(By.linkText(locator));
-            case PARTIAL_LINK: return driver.findElement(By.partialLinkText(locator));
-            case CSS: return driver.findElement(By.cssSelector(locator));
-            case XPATH: return driver.findElement(By.xpath(locator));
+    public WebElement findOne(LocatorType type, String locator) {
+        try {
+            switch (type) {
+                case NAME:
+                    return driver.findElement(By.name(locator));
+                case CLASS_NAME:
+                    return driver.findElement(By.className(locator));
+                case ID:
+                    return driver.findElement(By.id(locator));
+                case LINK:
+                    return driver.findElement(By.linkText(locator));
+                case PARTIAL_LINK:
+                    return driver.findElement(By.partialLinkText(locator));
+                case CSS:
+                    return driver.findElement(By.cssSelector(locator));
+                case XPATH:
+                    return driver.findElement(By.xpath(locator));
+                default:
+                    return null;
+            }
+            // TODO I suggest here throw correct exception - fixed
+        } catch (NoSuchElementException nsee) {
+            throw new NoSuchElementException(
+                    String.format("Unable to find element by type %s and locator %s", type, locator));
         }
-        // TODO I suggest here throw correct exception
-        return null;
     }
 
-    public List<WebElement> findList(LocatorType type, String locator){
-        switch (type) {
-            case NAME: return driver.findElements(By.name(locator));
-            case CLASS_NAME: return driver.findElements(By.className(locator));
-            case ID: return driver.findElements(By.id(locator));
-            case LINK: return driver.findElements(By.linkText(locator));
-            case PARTIAL_LINK: return driver.findElements(By.partialLinkText(locator));
-            case CSS: return driver.findElements(By.cssSelector(locator));
-            case XPATH: return driver.findElements(By.xpath(locator));
+    public List<WebElement> findList(LocatorType type, String locator) {
+        try {
+            switch (type) {
+                case NAME:
+                    return driver.findElements(By.name(locator));
+                case CLASS_NAME:
+                    return driver.findElements(By.className(locator));
+                case ID:
+                    return driver.findElements(By.id(locator));
+                case LINK:
+                    return driver.findElements(By.linkText(locator));
+                case PARTIAL_LINK:
+                    return driver.findElements(By.partialLinkText(locator));
+                case CSS:
+                    return driver.findElements(By.cssSelector(locator));
+                case XPATH:
+                    return driver.findElements(By.xpath(locator));
+                default:
+                    return null;
+            }
+            // TODO I suggest here throw correct exception - fixed
+        } catch (NoSuchElementException nsee) {
+            throw new NoSuchElementException(
+                    String.format("Unable to find element by type %s and locator %s", type, locator));
         }
-        // TODO I suggest here throw correct exception
-        return null;
     }
 
 

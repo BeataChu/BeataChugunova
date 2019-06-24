@@ -12,19 +12,20 @@ import static org.testng.Assert.assertNotNull;
 
 public class Ex1 extends BaseTest {
 
-    // TODO Please format code according Java Code Convention
+    // TODO Please format code according to Java Code Convention - fixed?
     @Test
-    public void exercise1Test() {
+    public void exerciseOneTest() {
+        checkLogin();
 
-        //    5. Assert Browser title
+        //5. Assert Browser title
         utilities.pageTitleIsCorrect("Home Page");
 
-        // 6. Assert that there are 4 items on the header section are displayed and they have proper texts
+        //6. Assert that there are 4 items on the header section are displayed and they have proper texts
         utilities.itemsAreInProperQuantityAndContainProperTexts(LocatorType.CSS, "header .nav>li", new ArrayList<String>(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS")));
 
         //7. Assert that there are 4 images on the Index Page and they are displayed
-        // TODO Should be third parameter empty? May be it will be better if you rewrite this method a bit?
-        utilities.itemsAreInProperQuantityAndContainProperTexts(LocatorType.CSS, ".uui-main-container .icons-benefit", new ArrayList<String>(Arrays.asList("", "", "", "")));
+        // TODO Should be third parameter empty? May be it will be better if you rewrite this method a bit? - fixed
+        utilities.itemsOfATypeExistInProperQuantity(LocatorType.CSS, ".uui-main-container .icons-benefit", 4);
 
         //8. Assert that there are 4 texts on the Index Page under icons and they have proper text
         utilities.itemsAreInProperQuantityAndContainProperTexts(LocatorType.CSS, ".uui-main-container .benefit-txt", new ArrayList<String>(Arrays.asList("To include good practices\nand ideas from successful\nEPAM project", "To be flexible and\ncustomizable", "To be multiplatform", "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…")));

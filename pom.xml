@@ -22,7 +22,7 @@
         <profile>
             <id>add-and-subtract</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/addAndSubtract.xml</suite.xml>
@@ -49,24 +49,14 @@
             </properties>
         </profile>
 
-        <!-- TODO Why do you need 2 profiles for HW2? -->
+        <!-- TODO Why do you need 2 profiles for HW2? - fixed -->
         <profile>
-            <id>hw2-exercise1</id>
+            <id>hw2-exercises</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw2Exercise1.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>hw2-exercise2</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/hw2Exercise2.xml</suite.xml>
+                <suite.xml>src/test/resources/hw2Exercises.xml</suite.xml>
             </properties>
         </profile>
 
@@ -107,11 +97,6 @@
             <version>2.6</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>3.6.1</version>
-        </dependency>
     </dependencies>
 
     <build>

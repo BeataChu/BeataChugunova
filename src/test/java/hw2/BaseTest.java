@@ -1,33 +1,39 @@
 package hw2;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
+import java.nio.file.Paths;
+
 public class BaseTest {
 
-    // TODO Why these fields are public?
-    public Utilities utilities;
-    public WebDriver driver;
+    // TODO Why these fields are public? - fixed
+    protected Utilities utilities;
+    protected WebDriver driver;
 
     @BeforeSuite
     public void setUpDriverPath() {
-        // TODO For the HW2 I ask you do not use WebDriverManager
-        WebDriverManager.chromedriver().setup();
+        // TODO For the HW2 I ask you do not use WebDriverManager - fixed
+        System.setProperty("webdriver.chrome.driver",
+                Paths.get("src/test/resources/driver/chromedriver.exe")
+                        .toAbsolutePath().toString());
+    }
 
-        // TODO Why driver initialization located in the BeforeSuite?
+    @BeforeMethod
+    //TODO Why driver initialization located in the BeforeSuite? - fixed
+    public void setUp() {
         driver = new ChromeDriver();
         utilities = new Utilities(driver);
         driver.manage().window().maximize();
+        //1. Open test site by URL
+        driver.get("https://epam.github.io/JDI");
     }
 
-    // TODO Why this method has @Test annotation?
-    // TODO Are you sure that this test will be running before all others?
-    @Test
-    public void openPageAndLoginTest() {
-        //    1. Open test site by Url
-        driver.get("https://epam.github.io/JDI");
+    // TODO Why this method has @Test annotation? - fixed
+    // TODO Are you sure that this test will be running before all others? - fixed
+
+    public void checkLogin() {
 
         //    2. Assert Browser title
         utilities.pageTitleIsCorrect("Home Page");
@@ -36,14 +42,12 @@ public class BaseTest {
         utilities.login("epam", "1234");
 
         //    4. Assert User name in the left-top side of screen that user is logged in
-
         utilities.userIsLoggedIn(LocatorType.ID, "user-name", "PITER CHAILOVSKII");
-
     }
 
-    @AfterSuite
+    @AfterMethod
     //1.17 and 2.19 Close browser
-    // TODO Why close in AfterSuites?
+    // TODO Why close in AfterSuites? - fixed
     public void tearDown() {
         driver.close();
     }
