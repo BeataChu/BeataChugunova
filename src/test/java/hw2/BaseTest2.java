@@ -6,7 +6,7 @@ import org.testng.annotations.*;
 
 import java.nio.file.Paths;
 
-public class BaseTest {
+public class BaseTest2 {
 
     protected Utilities utilities;
     protected WebDriver driver;
