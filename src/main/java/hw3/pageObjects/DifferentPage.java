@@ -24,8 +24,6 @@ public class DifferentPage extends BasePage{
     @FindBy (name = "log-sidebar")
     private WebElement logSection;
 
-
-
     public DifferentPage(WebDriver driver) {
         super(driver);
     }

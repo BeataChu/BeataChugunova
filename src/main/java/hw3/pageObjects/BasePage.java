@@ -1,6 +1,5 @@
 package hw3.pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,20 +46,12 @@ public abstract class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-//    public void clickLeftSideMenu(LeftSideMenu menuItem) {
-//        driver.findElement(By.linkText(menuItem.getName())).click();
-//    }
-
     public String getPageTitle() {
         return driver.getTitle();
     }
 
     public String getLoggedUserName(){
         return loggedUserName.getText();
-    }
-
-    public List<WebElement> getElementsByCss(String locator) {
-        return (driver).findElements(By.cssSelector(locator));
     }
 
     public WebElement getFooter(){

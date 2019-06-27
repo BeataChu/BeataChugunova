@@ -20,7 +20,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//button[@id='login-button']")
     private WebElement loginButton;
 
-      @FindBy(css = ".uui-main-container .icons-benefit")
+    @FindBy(css = ".uui-main-container .icons-benefit")
     private List<WebElement> greenPictures;
 
     @FindBy(css = ".uui-main-container .benefit-txt")
@@ -55,7 +55,7 @@ public class HomePage extends BasePage {
     }
 
     public List<WebElement> getCenterSectionTitles() {
-        return new ArrayList<WebElement>(Arrays.asList(epamWishes, loremIpsum));
+        return new ArrayList<>(Arrays.asList(epamWishes, loremIpsum));
     }
 
     public List<WebElement> getGreenPictures(){
