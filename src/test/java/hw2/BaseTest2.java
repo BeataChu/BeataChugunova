@@ -1,5 +1,6 @@
 package hw2;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
@@ -36,7 +37,7 @@ public class BaseTest2 {
         utilities.login("epam", "1234");
 
         //    4. Assert User name in the left-top side of screen that user is logged in
-        utilities.userIsLoggedIn(LocatorType.ID, "user-name", "PITER CHAILOVSKII");
+        utilities.userIsLoggedIn(By.id("user-name"), "PITER CHAILOVSKII");
     }
 
     @AfterMethod
