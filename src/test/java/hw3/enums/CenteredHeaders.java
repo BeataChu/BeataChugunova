@@ -11,7 +11,7 @@ public enum CenteredHeaders {
 
     private String text;
 
-    CenteredHeaders(String text){
+    CenteredHeaders(String text) {
         this.text = text;
     }
 

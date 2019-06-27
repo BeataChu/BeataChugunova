@@ -1,5 +1,6 @@
 package hw3;
 
+import hw3.steps.HomePageSteps;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +13,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class BaseTest3 {
@@ -40,19 +40,18 @@ public class BaseTest3 {
     public void checkLogin() {
 
         //    2. Assert Browser title
-        assertEquals(homePageSteps.getPageName(), "Home Page");
+        homePageSteps.pageNameIsCorrect("Home Page");
 
         //    3. Perform login
         homePageSteps.login(userInfo.getProperty("user.name"), userInfo.getProperty("user.password"));
 
         //    4. Assert User name in the left-top side of screen that user is logged in -
-        //    B.C. - I used assertTrue here because of equalsIgnoreCase() method
         assertTrue(homePageSteps.getLoggedUserName().equalsIgnoreCase(userInfo.getProperty("user.user.name")));
     }
 
-    public List<String> toStringList(Object[] s){
+    public List<String> toStringList(Object[] s) {
         List<String> result = new ArrayList<String>();
-        for (Object obj: s){
+        for (Object obj : s) {
             result.add(obj.toString());
         }
         return result;

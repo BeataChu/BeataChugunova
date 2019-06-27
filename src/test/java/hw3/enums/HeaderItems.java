@@ -1,14 +1,14 @@
 package hw3.enums;
 
 public enum HeaderItems {
-    HOME ("HOME"),
+    HOME("HOME"),
     CONTACT_FORM("CONTACT FORM"),
     SERVICE("SERVICE"),
     METALS_AND_COLORS("METALS & COLORS");
 
     private String text;
 
-    HeaderItems(String text){
+    HeaderItems(String text) {
         this.text = text;
     }
 

@@ -3,8 +3,17 @@ package hw3.enums;
 public enum Location {
     HEADER_SECTION,
     CENTER,
+    GREEN_PICTURES,
     UNDER_GREEN_PICTURES,
     LEFT_SECTION,
+    LOG_SECTION,
     FOOTER,
-    FRAME;
+    FRAME,
+    SERVICE_HEADER,
+    SERVICE_LEFT,
+    DIFFERENT_ELEMENTS,
+    CHECKBOXES,
+    RADIOBUTTONS,
+    DROPDOWN,
+    BUTTONS
 }

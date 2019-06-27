@@ -1,12 +1,12 @@
-package hw3;
+package hw3.ex1;
 
+import hw3.BaseTest3;
 import hw3.enums.CaptionsUnderGreenPictures;
 import hw3.enums.CenteredHeaders;
 import hw3.enums.HeaderItems;
 import hw3.enums.Location;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,11 +25,13 @@ public class Ex1 extends BaseTest3 {
 
         //6. Assert that there are 4 items on the header section are displayed and they have proper texts
 
+        HeaderItems.values().toString();
+
         List<String> expectedList = toStringList(HeaderItems.values());
         homePageSteps.itemsAreInProperQuantityWithProperTexts(Location.HEADER_SECTION, expectedList);
 
         //7. Assert that there are 4 images on the Index Page and they are displayed
-        homePageSteps.greenPicturesExistInProperQuantity(4);
+        homePageSteps.itemsAreInProperQuantity(Location.GREEN_PICTURES, 4);
 
         //8. Assert that there are 4 texts on the Index Page under icons and they have proper text
         expectedList = toStringList(CaptionsUnderGreenPictures.values());

@@ -1,8 +1,7 @@
-package hw3;
+package hw3.pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
@@ -21,10 +20,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//button[@id='login-button']")
     private WebElement loginButton;
 
-    @FindBy(css = "header .nav>li")
-    private List<WebElement> headerSectionTitles;
-
-    @FindBy(css = ".uui-main-container .icons-benefit")
+      @FindBy(css = ".uui-main-container .icons-benefit")
     private List<WebElement> greenPictures;
 
     @FindBy(css = ".uui-main-container .benefit-txt")
@@ -45,16 +41,10 @@ public class HomePage extends BasePage {
     @FindBy(id = "epam_logo")
     private WebElement epamLogo;
 
-    @FindBy (className = "uui-side-bar")
-    private WebElement leftSection;
-
-    @FindBy (className = "footer-bg")
-    private WebElement footer;
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
-
 
 
     public void login(String userName, String password) {
@@ -62,10 +52,6 @@ public class HomePage extends BasePage {
         loginNameTextField.sendKeys(userName);
         this.password.sendKeys(password);
         loginButton.click();
-    }
-
-    public List<WebElement> getHeaderSectionTitles() {
-        return headerSectionTitles;
     }
 
     public List<WebElement> getCenterSectionTitles() {
@@ -100,12 +86,7 @@ public class HomePage extends BasePage {
         return epamLogo;
     }
 
-    public WebElement getLeftSection(){
-        return leftSection;
-    }
 
-    public WebElement getFooter(){
-        return footer;
-    }
+
 
 }
