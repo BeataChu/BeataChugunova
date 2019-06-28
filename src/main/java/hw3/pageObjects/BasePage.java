@@ -1,3 +1,4 @@
+// TODO package name should be in the lower case
 package hw3.pageObjects;
 
 import org.openqa.selenium.WebDriver;
