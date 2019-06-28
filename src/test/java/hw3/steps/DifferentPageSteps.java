@@ -31,7 +31,7 @@ public class DifferentPageSteps extends BasicSteps {
                 elements = ((DifferentPage) actualPage).getCheckboxes();
                 break;
             case RADIOBUTTONS:
-                elements = ((DifferentPage) actualPage).getRadiobuttons();
+                elements = ((DifferentPage) actualPage).getRadioButtons();
                 break;
             case DROPDOWN:
                 elements = ((DifferentPage) actualPage).getDropdown();
@@ -64,7 +64,7 @@ public class DifferentPageSteps extends BasicSteps {
         if (label instanceof Checkboxes) {
             elements = ((DifferentPage) actualPage).getCheckboxes();
         } else if (label instanceof Radiobuttons) {
-            elements = ((DifferentPage) actualPage).getRadiobuttons();
+            elements = ((DifferentPage) actualPage).getRadioButtons();
         } else if (label instanceof DropdownSelect) {
             elements = ((DifferentPage) actualPage).getDropdown();
             elements.get(0).click();

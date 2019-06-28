@@ -32,8 +32,8 @@ public class DifferentPage extends BasePage{
         return checkboxes;
     }
 
-    // TODO getRadioButtons camel style ;)
-    public List<WebElement> getRadiobuttons(){
+    // TODO getRadioButtons camel style ;) - fixed
+    public List<WebElement> getRadioButtons(){
         return radiobuttons;
     }
 

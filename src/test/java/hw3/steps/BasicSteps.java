@@ -18,8 +18,8 @@ public abstract class BasicSteps {
     protected List<WebElement> elements;
     protected List<String> actualList;
 
-    // TODO could be protected
-    public BasicSteps(WebDriver driver) {
+    // TODO could be protected - fixed
+    protected BasicSteps(WebDriver driver) {
         this.driver = driver;
     }
 
