@@ -1,5 +1,5 @@
 // TODO package name should be in the lower case - fixed
-package hw3.pageObjects;
+package hw3.page_objects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

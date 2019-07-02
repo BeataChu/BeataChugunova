@@ -1,4 +1,4 @@
-package hw3.pageObjects;
+package hw3.page_objects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -4,10 +4,10 @@ import com.codeborne.selenide.SelenideElement;
 import hw4.BaseTest4;
 import hw4.InputData;
 import hw4.InputDataProvider;
-import hw4.enums.valuesForInputData.Colors;
-import hw4.enums.valuesForInputData.Elements;
-import hw4.enums.valuesForInputData.Metals;
-import hw4.enums.valuesForInputData.Vegetables;
+import hw4.enums.values_for_data_input.Colors;
+import hw4.enums.values_for_data_input.Elements;
+import hw4.enums.values_for_data_input.Metals;
+import hw4.enums.values_for_data_input.Vegetables;
 import hw4.pages.MetalsAndColorsPage;
 import org.testng.annotations.Test;
 

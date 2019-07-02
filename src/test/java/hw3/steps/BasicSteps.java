@@ -1,7 +1,7 @@
 package hw3.steps;
 
 import hw3.enums.Location;
-import hw3.pageObjects.BasePage;
+import hw3.page_objects.BasePage;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

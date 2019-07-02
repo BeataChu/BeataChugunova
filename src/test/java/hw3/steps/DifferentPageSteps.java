@@ -5,7 +5,7 @@ import hw3.enums.Labels.BaseLabel;
 import hw3.enums.Labels.Checkboxes;
 import hw3.enums.Labels.DropdownSelect;
 import hw3.enums.Labels.Radiobuttons;
-import hw3.pageObjects.DifferentPage;
+import hw3.page_objects.DifferentPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package hw4.enums.valuesForInputData;
+package hw4.enums.values_for_data_input;
 
 public enum Metals {
     METALS ("Metals"),
