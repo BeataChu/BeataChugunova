@@ -62,10 +62,20 @@
         <profile>
             <id>hw3-exercises</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw3Exercises.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4-exercises</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw4Exercises.xml</suite.xml>
             </properties>
         </profile>
 
@@ -111,6 +121,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>3.6.1</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>5.2.3</version>
         </dependency>
 
     </dependencies>

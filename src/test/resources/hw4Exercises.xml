@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Homework 4 - Exercise 1 and 2">
+
+    <test name="Hw4Tests">
+        <classes>
+            <class name="hw4.ex1.Ex1"/>
+            <class name="hw4.ex2.Ex2"/>
+        </classes>
+    </test>
+</suite>
