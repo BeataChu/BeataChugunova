@@ -3,10 +3,10 @@ package hw4;
 
 
 import java.util.List;
-import hw4.enums.Colors;
-import hw4.enums.Elements;
-import hw4.enums.Metals;
-import hw4.enums.Vegetables;
+import hw4.enums.valuesForInputData.Colors;
+import hw4.enums.valuesForInputData.Elements;
+import hw4.enums.valuesForInputData.Metals;
+import hw4.enums.valuesForInputData.Vegetables;
 
 public class InputData {
 

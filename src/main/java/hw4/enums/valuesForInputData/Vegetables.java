@@ -1,4 +1,4 @@
-package hw4.enums;
+package hw4.enums.valuesForInputData;
 
 public enum Vegetables {
     CUCUMBER ("Cucumber"),

@@ -1,16 +1,14 @@
 package hw4.ex2;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import hw4.BaseTest4;
 import hw4.InputData;
 import hw4.InputDataProvider;
-import hw4.enums.Colors;
-import hw4.enums.Elements;
-import hw4.enums.Metals;
-import hw4.enums.Vegetables;
+import hw4.enums.valuesForInputData.Colors;
+import hw4.enums.valuesForInputData.Elements;
+import hw4.enums.valuesForInputData.Metals;
+import hw4.enums.valuesForInputData.Vegetables;
 import hw4.pages.MetalsAndColorsPage;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;

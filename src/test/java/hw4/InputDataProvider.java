@@ -4,10 +4,10 @@ import org.testng.annotations.DataProvider;
 
 import java.util.Arrays;
 
-import static hw4.enums.Colors.*;
-import static hw4.enums.Elements.*;
-import static hw4.enums.Metals.*;
-import static hw4.enums.Vegetables.*;
+import static hw4.enums.valuesForInputData.Colors.*;
+import static hw4.enums.valuesForInputData.Elements.*;
+import static hw4.enums.valuesForInputData.Metals.*;
+import static hw4.enums.valuesForInputData.Vegetables.*;
 
 public class InputDataProvider {
 
