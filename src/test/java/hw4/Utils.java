@@ -15,6 +15,8 @@ public class Utils {
     }
 
     public static List<String> allTextsAreInSection(List<SelenideElement> elements, List<String> expectedList) {
+        // TODO Method looks a bit tricky
+        // TODO You try make some checks here
         List<String> actualList = new ArrayList<>();
         for (
                 SelenideElement element : elements) {

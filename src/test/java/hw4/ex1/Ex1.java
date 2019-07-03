@@ -27,10 +27,12 @@ public class Ex1 extends BaseTest4 {
         //5. Click on "Service" subcategory in the header and check that drop down contains options
         List<String> expectedList = Utils.toStringList(ServiceSectionItems.values());
         hp.clickServiceHeaderTitle();
+        // TODO Methods looks a bit tricky :)
         assertEquals(Utils.allTextsAreInSection(hp.getServiceHeaderSectionItems(), expectedList), expectedList);
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
         hp.clickServiceLeftTitle();
+        // TODO Methods looks a bit tricky :)
         assertEquals(Utils.allTextsAreInSection(hp.getServiceLeftSectionItems(), expectedList), expectedList);
 
         //7. Open through the header menu Service -> Table with pages
@@ -43,9 +45,11 @@ public class Ex1 extends BaseTest4 {
         tp.dropdownForNumberOfEntries().shouldHave(text(DataEnums.DEFAULT_NUMBER_OF_ENTRIES.getText()));
 
         //9. Assert that there is Right Section
+        // TODO What is the purpose of the current method invocation?
         tp.logSection().isDisplayed();
 
         //10. Assert that there is Left Section
+        // TODO What is the purpose of the current method invocation?
         tp.leftSection().isDisplayed();
 
         //11. Select new value for the entries in the dropdown list - 10
@@ -56,6 +60,7 @@ public class Ex1 extends BaseTest4 {
         tp.getSecondLineOfTheLog().shouldHave(text(DataEnums.NUMBER_OF_ENTRIES_TO_SHOW.getText()));
 
         //13. Assert that in the table displayed corrected amount of entries
+        // TODO What is the purpose of the current method invocation?
         $$(tp.getNumberOfEntriesDisplayed()).shouldHaveSize(Integer.parseInt(DataEnums.NUMBER_OF_ENTRIES_TO_SHOW.getText()));
 
         //14. Type in “Search” text field - Custom
