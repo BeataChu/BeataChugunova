@@ -1,10 +1,10 @@
 package hw4.enums.values_for_data_input;
 
 public enum Elements {
-    WATER ("Water"),
-    EARTH ("Earth"),
-    WIND ("Wind"),
-    FIRE ("Fire");
+    WATER("Water"),
+    EARTH("Earth"),
+    WIND("Wind"),
+    FIRE("Fire");
 
 
     private String text;

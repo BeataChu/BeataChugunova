@@ -1,10 +1,9 @@
 package hw4.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
@@ -48,8 +47,8 @@ public abstract class BasePage4 {
 
     }
 
-    // TODO Why do you return List<SelenideElements> instead of ElementsCollection???
-    public List<SelenideElement> getServiceHeaderSectionItems() {
+    // TODO Why do you return List<SelenideElements> instead of ElementsCollection??? - fixed
+    public ElementsCollection getServiceHeaderSectionItems() {
         return $$(".uui-header .m-l8 .dropdown-menu a");
     }
 
@@ -57,8 +56,8 @@ public abstract class BasePage4 {
         $(By.xpath("//ul[@class = 'sidebar-menu']//*[text() = 'Service']")).click();
     }
 
-    // TODO Why do you return List<SelenideElements> instead of ElementsCollection???
-    public List<SelenideElement> getServiceLeftSectionItems() {
+    // TODO Why do you return List<SelenideElements> instead of ElementsCollection??? - fixed
+    public ElementsCollection getServiceLeftSectionItems() {
         return $$(By.xpath("//li[@class='menu-title' and contains(.//span,'Service')]//li//span"));
     }
 

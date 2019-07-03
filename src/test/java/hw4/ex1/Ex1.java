@@ -1,19 +1,21 @@
 package hw4.ex1;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import hw3.enums.ServiceSectionItems;
 import hw4.BaseTest4;
 import hw4.DataEnums;
-import hw4.Utils;
 import hw4.pages.TableWithPagesPage;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class Ex1 extends BaseTest4 {
     @Test
@@ -25,15 +27,29 @@ public class Ex1 extends BaseTest4 {
         $("#user-name").shouldHave(text(userInfo.getProperty("user.user.name")));
 
         //5. Click on "Service" subcategory in the header and check that drop down contains options
-        List<String> expectedList = Utils.toStringList(ServiceSectionItems.values());
+        List<String> expectedList = new ArrayList<>();
+        ServiceSectionItems[] itemTexts = ServiceSectionItems.values();
+        for (ServiceSectionItems text : itemTexts) {
+            expectedList.add(text.toString());
+        }
+
         hp.clickServiceHeaderTitle();
-        // TODO Methods looks a bit tricky :)
-        assertEquals(Utils.allTextsAreInSection(hp.getServiceHeaderSectionItems(), expectedList), expectedList);
+        // TODO Methods looks a bit tricky :) - fixed
+        ElementsCollection sectionItems = hp.getServiceHeaderSectionItems();
+        List<String> actualList = new ArrayList<>();
+        for (SelenideElement element : sectionItems) {
+            actualList.add(element.getText().toUpperCase());
+        }
+        assertTrue(actualList.containsAll(expectedList));
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
         hp.clickServiceLeftTitle();
-        // TODO Methods looks a bit tricky :)
-        assertEquals(Utils.allTextsAreInSection(hp.getServiceLeftSectionItems(), expectedList), expectedList);
+        // TODO Methods looks a bit tricky :) - fixed
+        sectionItems = hp.getServiceLeftSectionItems();
+        for (SelenideElement element : sectionItems) {
+            actualList.add(element.getText().toUpperCase());
+        }
+        assertTrue(actualList.containsAll(expectedList));
 
         //7. Open through the header menu Service -> Table with pages
         hp.clickServiceHeaderTitle();
@@ -45,12 +61,12 @@ public class Ex1 extends BaseTest4 {
         tp.dropdownForNumberOfEntries().shouldHave(text(DataEnums.DEFAULT_NUMBER_OF_ENTRIES.getText()));
 
         //9. Assert that there is Right Section
-        // TODO What is the purpose of the current method invocation?
-        tp.logSection().isDisplayed();
+        // TODO What is the purpose of the current method invocation? - fixed
+        tp.logSection().shouldBe(visible);
 
         //10. Assert that there is Left Section
-        // TODO What is the purpose of the current method invocation?
-        tp.leftSection().isDisplayed();
+        // TODO What is the purpose of the current method invocation? - fixed
+        tp.leftSection().shouldBe(visible);
 
         //11. Select new value for the entries in the dropdown list - 10
         tp.dropdownForNumberOfEntries().selectOption(DataEnums.NUMBER_OF_ENTRIES_TO_SHOW.getText());
@@ -60,8 +76,8 @@ public class Ex1 extends BaseTest4 {
         tp.getSecondLineOfTheLog().shouldHave(text(DataEnums.NUMBER_OF_ENTRIES_TO_SHOW.getText()));
 
         //13. Assert that in the table displayed corrected amount of entries
-        // TODO What is the purpose of the current method invocation?
-        $$(tp.getNumberOfEntriesDisplayed()).shouldHaveSize(Integer.parseInt(DataEnums.NUMBER_OF_ENTRIES_TO_SHOW.getText()));
+        // TODO What is the purpose of the current method invocation? - fixed
+        $$(tp.getNumberOfEntriesDisplayed()).shouldHaveSize(10);
 
         //14. Type in “Search” text field - Custom
         tp.searchInput().sendKeys(DataEnums.TEXT_FOR_SEARCH.getText());
