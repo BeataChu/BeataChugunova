@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.codeborne.selenide.CollectionCondition.texts;
+import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -33,25 +35,19 @@ public class Ex1 extends BaseTest4 {
             expectedList.add(text.toString());
         }
 
-        hp.clickServiceHeaderTitle();
         // TODO Methods looks a bit tricky :) - fixed
+        hp.clickServiceHeaderTitle();
         ElementsCollection sectionItems = hp.getServiceHeaderSectionItems();
-        List<String> actualList = new ArrayList<>();
-        for (SelenideElement element : sectionItems) {
-            actualList.add(element.getText().toUpperCase());
-        }
-        assertTrue(actualList.containsAll(expectedList));
+        sectionItems.texts().containsAll(expectedList);
+
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
-        hp.clickServiceLeftTitle();
         // TODO Methods looks a bit tricky :) - fixed
+        hp.clickServiceLeftTitle();
         sectionItems = hp.getServiceLeftSectionItems();
-        for (SelenideElement element : sectionItems) {
-            actualList.add(element.getText().toUpperCase());
-        }
-        assertTrue(actualList.containsAll(expectedList));
+        sectionItems.texts().containsAll(expectedList);
 
-        //7. Open through the header menu Service -> Table with pages
+         //7. Open through the header menu Service -> Table with pages
         hp.clickServiceHeaderTitle();
         hp.clickHeaderTableWithPages();
 
