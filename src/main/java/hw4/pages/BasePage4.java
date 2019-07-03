@@ -47,6 +47,8 @@ public abstract class BasePage4 {
         $(byXpath("//header//a[text() = 'Metals & Colors']")).click();
 
     }
+
+    // TODO Why do you return List<SelenideElements> instead of ElementsCollection???
     public List<SelenideElement> getServiceHeaderSectionItems() {
         return $$(".uui-header .m-l8 .dropdown-menu a");
     }
@@ -55,6 +57,7 @@ public abstract class BasePage4 {
         $(By.xpath("//ul[@class = 'sidebar-menu']//*[text() = 'Service']")).click();
     }
 
+    // TODO Why do you return List<SelenideElements> instead of ElementsCollection???
     public List<SelenideElement> getServiceLeftSectionItems() {
         return $$(By.xpath("//li[@class='menu-title' and contains(.//span,'Service')]//li//span"));
     }
