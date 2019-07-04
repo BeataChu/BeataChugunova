@@ -31,7 +31,6 @@ public class TableWithPagesPage {
         return $(".panel-body-list.logs>li:nth-child(2)");
     }
 
-    // TODO Why do you return List<SelenideElements> instead of ElementsCollection???
     public ElementsCollection getNumberOfEntriesDisplayed() {
         return $$("#table-with-pages > tbody>tr");
     }

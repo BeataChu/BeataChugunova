@@ -35,7 +35,6 @@ public class Ex1 extends BaseTest4 {
             expectedList.add(text.toString());
         }
 
-        // TODO Methods looks a bit tricky :) - fixed
         hp.clickServiceHeaderTitle();
         ElementsCollection actualItemsList = hp.getServiceHeaderSectionItems();
         List<String> itemsTexts = new ArrayList<>();
@@ -46,7 +45,6 @@ public class Ex1 extends BaseTest4 {
 
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
-        // TODO Methods looks a bit tricky :) - fixed
         hp.clickServiceLeftTitle();
         actualItemsList = hp.getServiceLeftSectionItems();
         itemsTexts = new ArrayList<>();
@@ -65,11 +63,9 @@ public class Ex1 extends BaseTest4 {
         tp.dropdownForNumberOfEntries().shouldHave(text(DataEnums.DEFAULT_NUMBER_OF_ENTRIES.getText()));
 
         //9. Assert that there is Right Section
-        // TODO What is the purpose of the current method invocation? - fixed
         tp.logSection().shouldBe(visible);
 
         //10. Assert that there is Left Section
-        // TODO What is the purpose of the current method invocation? - fixed
         tp.leftSection().shouldBe(visible);
 
         //11. Select new value for the entries in the dropdown list - 10
@@ -80,7 +76,6 @@ public class Ex1 extends BaseTest4 {
         tp.getSecondLineOfTheLog().shouldHave(text(DataEnums.NUMBER_OF_ENTRIES_TO_SHOW.getText()));
 
         //13. Assert that in the table displayed corrected amount of entries
-        // TODO What is the purpose of the current method invocation? - fixed
         $$(tp.getNumberOfEntriesDisplayed()).shouldHaveSize(10);
 
         //14. Type in “Search” text field - Custom
