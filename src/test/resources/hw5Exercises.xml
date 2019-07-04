@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Homework 5 - Exercise 1 and 2 and Failing test">
+
+    <test name="Hw5Ex1Tests">
+        <classes>
+            <class name="hw5.ex1.Ex1"/>
+            <class name="hw5.ex2.Ex2"/>
+            <class name="hw5.FailingTest"/>
+        </classes>
+    </test>
+</suite>

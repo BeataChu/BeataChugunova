@@ -1,0 +1,19 @@
+package hw5.enums;
+
+public enum Location {
+    HEADER_SECTION,
+    CENTER,
+    GREEN_PICTURES,
+    UNDER_GREEN_PICTURES,
+    LEFT_SECTION,
+    LOG_SECTION,
+    FOOTER,
+    FRAME,
+    SERVICE_HEADER,
+    SERVICE_LEFT,
+    DIFFERENT_ELEMENTS,
+    CHECKBOXES,
+    RADIOBUTTONS,
+    DROPDOWN,
+    BUTTONS
+}
