@@ -84,14 +84,14 @@ public class DifferentPageSteps extends BasicSteps {
         return item;
     }
 
-    @Step("Click label and check selection")
+    @Step("Click label {label} and check selection")
     public void clickLabelAndCheckSelection(BaseLabel label, boolean isSelected) {
         WebElement item = findLabel(label);
         item.click();
         assertEquals(item.isSelected(), isSelected);
     }
 
-    @Step("Check that log reflects actions in its lines")
+    @Step("Check that log reflects actions on label {label}")
     public void linesOfTheLogReflectActionsWithLabel(BaseLabel label) {
         String firstLineOfTheLog, regex;
         WebElement item = findLabel(label);

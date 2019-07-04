@@ -25,7 +25,7 @@ public abstract class BasicSteps {
         TestProvider.getInstance().setDriver(driver);
     }
 
-    @Step("Check page name")
+    @Step("Check page name (expected: {expectedPageName}")
     public void pageNameIsCorrect(String expectedPageName) {
         assertEquals(actualPage.getPageTitle(), expectedPageName);
     }
@@ -35,7 +35,7 @@ public abstract class BasicSteps {
         return actualPage.getLoggedUserName();
     }
 
-    @Step("Check if items are all displayed in section")
+    @Step("Check if items are all displayed in section {location}")
     public void itemsAreAllPresentInSection(Location location, List<String> expectedList) {
 
         switch (location) {
@@ -58,7 +58,7 @@ public abstract class BasicSteps {
         assertEquals(actualList, expectedList);
     }
 
-    @Step("Click item")
+    @Step("Click item in {location}")
     public void clickItem(Location location) {
         WebElement item;
         switch (location) {
