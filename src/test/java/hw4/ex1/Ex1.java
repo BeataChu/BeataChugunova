@@ -37,15 +37,23 @@ public class Ex1 extends BaseTest4 {
 
         // TODO Methods looks a bit tricky :) - fixed
         hp.clickServiceHeaderTitle();
-        ElementsCollection sectionItems = hp.getServiceHeaderSectionItems();
-        sectionItems.texts().containsAll(expectedList);
+        ElementsCollection actualItemsList = hp.getServiceHeaderSectionItems();
+        List<String> itemsTexts = new ArrayList<>();
+        for (SelenideElement element : actualItemsList){
+            itemsTexts.add(element.getText().toUpperCase());
+        }
+        assertTrue(itemsTexts.containsAll(expectedList));
 
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
         // TODO Methods looks a bit tricky :) - fixed
         hp.clickServiceLeftTitle();
-        sectionItems = hp.getServiceLeftSectionItems();
-        sectionItems.texts().containsAll(expectedList);
+        actualItemsList = hp.getServiceLeftSectionItems();
+        itemsTexts = new ArrayList<>();
+        for (SelenideElement element : actualItemsList){
+            itemsTexts.add(element.getText().toUpperCase());
+        }
+        assertTrue(itemsTexts.containsAll(expectedList));
 
          //7. Open through the header menu Service -> Table with pages
         hp.clickServiceHeaderTitle();
