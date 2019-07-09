@@ -13,7 +13,7 @@ public enum Location {
     SERVICE_LEFT,
     DIFFERENT_ELEMENTS,
     CHECKBOXES,
-    RADIOBUTTONS,
+    RADIO_BUTTONS,
     DROPDOWN,
     BUTTONS
 }

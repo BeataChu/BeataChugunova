@@ -4,7 +4,7 @@ import hw3.BaseTest3;
 import hw3.enums.*;
 import hw3.enums.Labels.Checkboxes;
 import hw3.enums.Labels.DropdownSelect;
-import hw3.enums.Labels.Radiobuttons;
+import hw3.enums.Labels.RadioButtons;
 import hw3.steps.DifferentPageSteps;
 import org.testng.annotations.Test;
 
@@ -35,7 +35,7 @@ public class Ex2 extends BaseTest3 {
 
         //8. Check interface on Different elements page, it contains all needed elements
         differentPageSteps.itemsAreInProperQuantity(Location.CHECKBOXES, 4);
-        differentPageSteps.itemsAreInProperQuantity(Location.RADIOBUTTONS, 4);
+        differentPageSteps.itemsAreInProperQuantity(Location.RADIO_BUTTONS, 4);
         differentPageSteps.itemsAreInProperQuantity(Location.DROPDOWN, 1);
         differentPageSteps.itemsAreInProperQuantity(Location.BUTTONS, 2);
 
@@ -54,10 +54,10 @@ public class Ex2 extends BaseTest3 {
         differentPageSteps.linesOfTheLogReflectActionsWithLabel(Checkboxes.WIND);
 
         //13. Select radio Selen
-        differentPageSteps.clickLabelAndCheckSelection(Radiobuttons.SELEN, true);
+        differentPageSteps.clickLabelAndCheckSelection(RadioButtons.SELEN, true);
 
         //14. Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
-        differentPageSteps.linesOfTheLogReflectActionsWithLabel(Radiobuttons.SELEN);
+        differentPageSteps.linesOfTheLogReflectActionsWithLabel(RadioButtons.SELEN);
 
         //15. Select in dropdown	Yellow
         differentPageSteps.clickLabelAndCheckSelection(DropdownSelect.YELLOW, true);

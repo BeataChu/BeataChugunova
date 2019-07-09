@@ -1,6 +1,6 @@
 package hw3.enums.Labels;
 
-public enum Radiobuttons implements BaseLabel {
+public enum RadioButtons implements BaseLabel {
 
     GOLD("GOLD"),
     SILVER("SILVER"),
@@ -9,7 +9,7 @@ public enum Radiobuttons implements BaseLabel {
 
     private String text;
 
-    Radiobuttons(String text) {
+    RadioButtons(String text) {
         this.text = text;
     }
 

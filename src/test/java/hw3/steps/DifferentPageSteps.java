@@ -4,7 +4,7 @@ import hw3.enums.*;
 import hw3.enums.Labels.BaseLabel;
 import hw3.enums.Labels.Checkboxes;
 import hw3.enums.Labels.DropdownSelect;
-import hw3.enums.Labels.Radiobuttons;
+import hw3.enums.Labels.RadioButtons;
 import hw3.page_objects.DifferentPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -30,7 +30,7 @@ public class DifferentPageSteps extends BasicSteps {
             case CHECKBOXES:
                 elements = ((DifferentPage) actualPage).getCheckboxes();
                 break;
-            case RADIOBUTTONS:
+            case RADIO_BUTTONS:
                 elements = ((DifferentPage) actualPage).getRadioButtons();
                 break;
             case DROPDOWN:
@@ -63,7 +63,7 @@ public class DifferentPageSteps extends BasicSteps {
     public WebElement findLabel(BaseLabel label) {
         if (label instanceof Checkboxes) {
             elements = ((DifferentPage) actualPage).getCheckboxes();
-        } else if (label instanceof Radiobuttons) {
+        } else if (label instanceof RadioButtons) {
             elements = ((DifferentPage) actualPage).getRadioButtons();
         } else if (label instanceof DropdownSelect) {
             elements = ((DifferentPage) actualPage).getDropdown();

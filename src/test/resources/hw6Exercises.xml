@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Homework 6 - Exercise 1 and 2 - Cucumber">
+
+    <test name="Hw5Ex1Tests">
+        <classes>
+            <class name="hw6.RunAcceptanceIT"/>
+        </classes>
+    </test>
+</suite>
