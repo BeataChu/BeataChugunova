@@ -1,3 +1,4 @@
+// TODO The package name should be in the low case
 package hw6.pageObjects;
 
 import hw6.entities.TestContext;
@@ -38,6 +39,7 @@ public abstract class BasePage6 {
     private WebElement userTable;
 
     public BasePage6() {
+        // TODO I recommend set driver as parameter to the constryctor
         PageFactory.initElements(TestContext.getDriver(), this);
     }
 

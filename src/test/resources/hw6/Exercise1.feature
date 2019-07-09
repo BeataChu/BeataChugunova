@@ -8,6 +8,7 @@ Feature: Home Page and Different Elements Page functions
 
     When I login as 'epam'/'1234'
     Then User name should be 'PITER CHAILOVSKII'
+    # TODO Home page ;)
     And home page should contain all necessary elements
       | GREEN_PICTURES       | 4 |
       | UNDER_GREEN_PICTURES | 4 |
@@ -27,10 +28,12 @@ Feature: Home Page and Different Elements Page functions
       | RADIO_BUTTONS | 4 |
       | DROPDOWN      | 1 |
       | BUTTONS       | 2 |
+    # TODO there - it is where?
     And there should be 'LOG_SECTION'
     And there should be 'LEFT_SECTION'
-
+  # TODO It will be better to add page where these elements exist
     When I select checkbox 'WATER'
+    # TODO What do you mean under the 'corresponding log line'?
     Then for a clicked checkbox 'WATER' there is a corresponding log line
 
     When I select checkbox 'WIND'

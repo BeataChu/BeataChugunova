@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class HomePage6 extends BasePage6 {
+    // TODO You could create static method which will set instance = null
+    // TODO And invoke it in the CucumberHooks class in @After hook
     private static HomePage6 instance;
 
     @FindBy(id = "user-icon")

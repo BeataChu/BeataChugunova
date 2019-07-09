@@ -24,6 +24,8 @@ import static org.testng.Assert.*;
 
 public class AssertionSteps extends BaseSteps {
 
+    // TODO This fields available only in the current class
+    // TODO it is better to move them to TestContext
     List<WebElement> elements;
     private Map<Location, Integer> elementsList;
 
@@ -42,6 +44,7 @@ public class AssertionSteps extends BaseSteps {
     public void homePageShouldContainAllNecessaryElements(Map<Location, Integer> elementsList) {
         this.elementsList = elementsList;
         for (Map.Entry<Location, Integer> entry : elementsList.entrySet()) {
+            // TODO assertEquals
             assertTrue(TestContext.getActualPage().getSectionItems((Location) entry.getKey()).size() == entry.getValue());
         }
     }
@@ -67,6 +70,7 @@ public class AssertionSteps extends BaseSteps {
     public void diffPageShouldContainAllNecessaryElements(Map<Location, Integer> elementsList) {
         this.elementsList = elementsList;
         for (Map.Entry<Location, Integer> entry : elementsList.entrySet()) {
+            // TODO assertEquals
             assertTrue(TestContext.getActualPage().getSectionItems(entry.getKey()).size() == entry.getValue());
         }
     }

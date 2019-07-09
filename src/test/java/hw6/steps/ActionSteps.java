@@ -17,7 +17,8 @@ import java.util.List;
 
 public class ActionSteps extends BaseSteps {
 
-
+    // TODO This fields available only in the current class
+    // TODO it is better to move them to TestContext
     private List<WebElement> elements;
 
     @When("I login as '([^\"]*)'/'([^\"]*)'")
