@@ -1,9 +1,9 @@
-// TODO The package name should be in the low case
-package hw6.pageObjects;
+// TODO The package name should be in the low case - fixed
+package hw6.page_objects;
 
 import hw6.entities.TestContext;
-import hw6.enums.Location;
-import hw6.enums.ServiceSectionItems;
+import hw6.page_objects.enums.Location;
+import hw6.page_objects.enums.ServiceSectionItems;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static hw6.enums.Location.HEADER_SECTION;
+import static hw6.page_objects.enums.Location.HEADER_SECTION;
 
 
 public abstract class BasePage6 {
@@ -39,7 +39,7 @@ public abstract class BasePage6 {
     private WebElement userTable;
 
     public BasePage6() {
-        // TODO I recommend set driver as parameter to the constryctor
+        // TODO I recommend set driver as parameter to the constructor
         PageFactory.initElements(TestContext.getDriver(), this);
     }
 
@@ -64,6 +64,5 @@ public abstract class BasePage6 {
     }
 
     public abstract List<WebElement> getSectionItems(Location location);
-
 
 }

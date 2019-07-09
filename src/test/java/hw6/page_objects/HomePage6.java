@@ -1,15 +1,19 @@
-package hw6.pageObjects;
+package hw6.page_objects;
 
-import hw6.enums.Location;
+import hw6.page_objects.enums.Location;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class HomePage6 extends BasePage6 {
-    // TODO You could create static method which will set instance = null
-    // TODO And invoke it in the CucumberHooks class in @After hook
+    // TODO You could create static method which will set instance = null - fixed
+    // TODO And invoke it in the CucumberHooks class in @After hook - fixed
     private static HomePage6 instance;
+
+    public static void wipeInstance(){
+        instance = null;
+    }
 
     @FindBy(id = "user-icon")
     private WebElement userIcon;

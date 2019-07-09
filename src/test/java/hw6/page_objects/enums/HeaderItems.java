@@ -1,4 +1,4 @@
-package hw6.enums;
+package hw6.page_objects.enums;
 
 public enum HeaderItems {
     HOME("HOME"),

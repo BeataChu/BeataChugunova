@@ -1,7 +1,7 @@
-package hw6.pageObjects;
+package hw6.page_objects;
 
 import hw6.entities.TestContext;
-import hw6.enums.Location;
+import hw6.page_objects.enums.Location;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -30,6 +30,10 @@ public class UserTablePage6 extends BasePage6 {
             instance = new UserTablePage6();
         }
         return instance;
+    }
+
+    public static void wipeInstance(){
+        instance = null;
     }
 
     public List<WebElement> getSectionItems(Location location) {

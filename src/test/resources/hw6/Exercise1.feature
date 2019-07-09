@@ -8,8 +8,8 @@ Feature: Home Page and Different Elements Page functions
 
     When I login as 'epam'/'1234'
     Then User name should be 'PITER CHAILOVSKII'
-    # TODO Home page ;)
-    And home page should contain all necessary elements
+    # TODO Home page ;) - fixed
+    And Home Page should contain all necessary elements
       | GREEN_PICTURES       | 4 |
       | UNDER_GREEN_PICTURES | 4 |
       | CENTER               | 2 |
@@ -28,27 +28,27 @@ Feature: Home Page and Different Elements Page functions
       | RADIO_BUTTONS | 4 |
       | DROPDOWN      | 1 |
       | BUTTONS       | 2 |
-    # TODO there - it is where?
-    And there should be 'LOG_SECTION'
-    And there should be 'LEFT_SECTION'
-  # TODO It will be better to add page where these elements exist
-    When I select checkbox 'WATER'
-    # TODO What do you mean under the 'corresponding log line'?
-    Then for a clicked checkbox 'WATER' there is a corresponding log line
+    # TODO there - it is where? - fixed
+    And there should be 'LOG_SECTION' in Different Elements page
+    And there should be 'LEFT_SECTION' in Different Elements page
+  # TODO It will be better to add page where these elements exist - fixed
+    When I select checkbox 'WATER' in Different Elements page
+    # TODO What do you mean under the 'corresponding log line'?  - ссответствующая строка лога. Вполне себе логично звучит, имхо
+    Then for a clicked checkbox 'WATER' there should be a corresponding log line
 
-    When I select checkbox 'WIND'
-    Then for a clicked checkbox 'WIND' there is a corresponding log line
+    When I select checkbox 'WIND' in Different Elements page
+    Then for a clicked checkbox 'WIND' there should be a corresponding log line
 
-    When I select radio button 'SELEN'
-    Then for a clicked radio button 'SELEN' there is a corresponding log line
+    When I select radio button 'SELEN' in Different Elements page
+    Then for a clicked radio button 'SELEN' there should be a corresponding log line
 
-    When I select dropdown item 'YELLOW'
-    Then for a clicked dropdown item 'YELLOW' there is a corresponding log line
+    When I select dropdown item 'YELLOW' in Different Elements page
+    Then for a clicked dropdown item 'YELLOW' there should be a corresponding log line
 
-    When I unselect checkbox 'WATER'
-    Then for a clicked checkbox 'WATER' there is a corresponding log line
+    When I unselect checkbox 'WATER' in Different Elements page
+    Then for a clicked checkbox 'WATER' there should be a corresponding log line
 
-    When I unselect checkbox 'WIND'
-    Then for a clicked checkbox 'WIND' there is a corresponding log line
+    When I unselect checkbox 'WIND' in Different Elements page
+    Then for a clicked checkbox 'WIND' there should be a corresponding log line
 
 

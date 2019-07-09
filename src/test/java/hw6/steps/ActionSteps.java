@@ -2,15 +2,15 @@ package hw6.steps;
 
 import cucumber.api.java.en.When;
 import hw6.entities.TestContext;
-import hw6.enums.Labels.BaseLabel;
-import hw6.enums.Labels.Checkboxes;
-import hw6.enums.Labels.DropdownSelect;
-import hw6.enums.Labels.RadioButtons;
-import hw6.enums.Location;
-import hw6.enums.ServiceSectionItems;
-import hw6.pageObjects.DifferentPage6;
-import hw6.pageObjects.HomePage6;
-import hw6.pageObjects.UserTablePage6;
+import hw6.page_objects.labels.BaseLabel;
+import hw6.page_objects.labels.Checkboxes;
+import hw6.page_objects.labels.DropdownSelect;
+import hw6.page_objects.labels.RadioButtons;
+import hw6.page_objects.enums.Location;
+import hw6.page_objects.enums.ServiceSectionItems;
+import hw6.page_objects.DifferentPage6;
+import hw6.page_objects.HomePage6;
+import hw6.page_objects.UserTablePage6;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -18,8 +18,7 @@ import java.util.List;
 public class ActionSteps extends BaseSteps {
 
     // TODO This fields available only in the current class
-    // TODO it is better to move them to TestContext
-    private List<WebElement> elements;
+    // TODO it is better to move them to TestContext - B.C.: moved variable to specific methods
 
     @When("I login as '([^\"]*)'/'([^\"]*)'")
     public void iLoginAs(String username, String password) {
@@ -46,36 +45,36 @@ public class ActionSteps extends BaseSteps {
         TestContext.setActualPage(UserTablePage6.getInstance());
     }
 
-    @When("I select checkbox '([^\"]*)'")
+    @When("I select checkbox '([^\"]*)' in Different Elements page")
     public void selectItem(Checkboxes value) {
-        elements = TestContext.getActualPage().getSectionItems(Location.CHECKBOXES);
+        List<WebElement> elements = TestContext.getActualPage().getSectionItems(Location.CHECKBOXES);
         WebElement item = getSpecificItem((BaseLabel) value, elements);
         if (!item.isSelected()) {
             item.click();
         }
     }
 
-    @When("I unselect checkbox '([^\"]*)'")
+    @When("I unselect checkbox '([^\"]*)' in Different Elements page")
     public void unselectItem(Checkboxes value) {
-        elements = TestContext.getActualPage().getSectionItems(Location.CHECKBOXES);
+        List<WebElement> elements = TestContext.getActualPage().getSectionItems(Location.CHECKBOXES);
         WebElement item = getSpecificItem(value, elements);
         if (item.isSelected()) {
             item.click();
         }
     }
 
-    @When("I select radio button '([^\"]*)'")
+    @When("I select radio button '([^\"]*)' in Different Elements page")
     public void selectItem(RadioButtons value) {
-        elements = TestContext.getActualPage().getSectionItems(Location.RADIO_BUTTONS);
+        List<WebElement> elements  = TestContext.getActualPage().getSectionItems(Location.RADIO_BUTTONS);
         WebElement item = getSpecificItem(value, elements);
         if (!item.isSelected()) {
             item.click();
         }
     }
 
-    @When("I select dropdown item '([^\"]*)'")
+    @When("I select dropdown item '([^\"]*)' in Different Elements page")
     public void selectItem(DropdownSelect value) {
-        elements = TestContext.getActualPage().getSectionItems(Location.DROPDOWN);
+        List<WebElement> elements  = TestContext.getActualPage().getSectionItems(Location.DROPDOWN);
         elements.get(0).click();
         elements = TestContext.getActualPage().getSectionItems(Location.DROPDOWN_OPTIONS);
         WebElement item = getSpecificItem(value, elements);
@@ -94,15 +93,7 @@ public class ActionSteps extends BaseSteps {
         ((UserTablePage6) TestContext.getActualPage()).getUserTypeSelect(userName).click();
     }
 
-//    @When ("I make a screenshot")
-//    public void makeAScreenshot() {
-//        try {
-//            File scrFile = ((TakesScreenshot) TestContext.getDriver()).getScreenshotAs(OutputType.FILE);
-//            FileUtils.copyFile(scrFile, new File("c:\\temp\\screenshot.png"));
-//        } catch (IOException ioe) {
-//            ioe.printStackTrace();
-//        }
-//    }
+
 
 
 }

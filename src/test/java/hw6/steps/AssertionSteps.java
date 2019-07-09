@@ -3,12 +3,12 @@ package hw6.steps;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import hw6.entities.TestContext;
-import hw6.enums.Labels.Checkboxes;
-import hw6.enums.Labels.DropdownSelect;
-import hw6.enums.Labels.RadioButtons;
-import hw6.enums.Location;
-import hw6.pageObjects.DifferentPage6;
-import hw6.pageObjects.UserTablePage6;
+import hw6.page_objects.labels.Checkboxes;
+import hw6.page_objects.labels.DropdownSelect;
+import hw6.page_objects.labels.RadioButtons;
+import hw6.page_objects.enums.Location;
+import hw6.page_objects.DifferentPage6;
+import hw6.page_objects.UserTablePage6;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -19,15 +19,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import static hw6.enums.Location.*;
+import static hw6.page_objects.enums.Location.*;
 import static org.testng.Assert.*;
 
 public class AssertionSteps extends BaseSteps {
 
     // TODO This fields available only in the current class
-    // TODO it is better to move them to TestContext
-    List<WebElement> elements;
-    private Map<Location, Integer> elementsList;
+    // TODO it is better to move them to TestContext - B.C.: moved variable to specific methods
 
     @Then("page title should be '([^\"]*)'")
     public void iGetPageTitle(String expectedPageTitle) {
@@ -40,12 +38,11 @@ public class AssertionSteps extends BaseSteps {
         assertEquals(userNameWebElement.getText(), expectedUsername);
     }
 
-    @Then("home page should contain all necessary elements")
+    @Then("Home Page should contain all necessary elements")
     public void homePageShouldContainAllNecessaryElements(Map<Location, Integer> elementsList) {
-        this.elementsList = elementsList;
         for (Map.Entry<Location, Integer> entry : elementsList.entrySet()) {
-            // TODO assertEquals
-            assertTrue(TestContext.getActualPage().getSectionItems((Location) entry.getKey()).size() == entry.getValue());
+            // TODO assertEquals - fixed
+            assertEquals(TestContext.getActualPage().getSectionItems(entry.getKey()).size(), entry.getValue().intValue());
         }
     }
 
@@ -68,22 +65,21 @@ public class AssertionSteps extends BaseSteps {
 
     @Then("Different Elements page should contain all necessary elements")
     public void diffPageShouldContainAllNecessaryElements(Map<Location, Integer> elementsList) {
-        this.elementsList = elementsList;
         for (Map.Entry<Location, Integer> entry : elementsList.entrySet()) {
-            // TODO assertEquals
-            assertTrue(TestContext.getActualPage().getSectionItems(entry.getKey()).size() == entry.getValue());
+            // TODO assertEquals - fixed
+            assertEquals(TestContext.getActualPage().getSectionItems(entry.getKey()).size(), entry.getValue().intValue());
         }
     }
 
-    @Then("there should be '([^\"]*)'")
+    @Then("there should be '([^\"]*)' in Different Elements page")
     public void sectionShouldBeVisible(Location location) {
         WebElement section = ((DifferentPage6) TestContext.getActualPage()).getSideSection(location);
         assertTrue(section.isDisplayed());
     }
 
-    @Then("for a clicked checkbox '([^\"]*)' there is a corresponding log line")
+    @Then("for a clicked checkbox '([^\"]*)' there should be a corresponding log line")
     public void logLineShouldCorrespondWithActions(Checkboxes value) {
-        elements = TestContext.getActualPage().getSectionItems(CHECKBOXES);
+        List<WebElement> elements = TestContext.getActualPage().getSectionItems(CHECKBOXES);
         WebElement item = getSpecificItem(value, elements);
         String firstLineOfTheLog = ((DifferentPage6) TestContext.getActualPage()).getFirstLineOfTheLog().getText();
         String regex = ".*" + item.getText().trim() + ".*" + item.isSelected();
@@ -94,9 +90,9 @@ public class AssertionSteps extends BaseSteps {
     }
 
 
-    @Then("for a clicked radio button '([^\"]*)' there is a corresponding log line")
+    @Then("for a clicked radio button '([^\"]*)' there should be a corresponding log line")
     public void logLineShouldCorrespondWithActions(RadioButtons value) {
-        elements = TestContext.getActualPage().getSectionItems(RADIO_BUTTONS);
+        List<WebElement> elements = TestContext.getActualPage().getSectionItems(RADIO_BUTTONS);
         WebElement item = getSpecificItem(value, elements);
         String firstLineOfTheLog = ((DifferentPage6) TestContext.getActualPage()).getFirstLineOfTheLog().getText();
         String regex = ".*" + item.getText().trim();
@@ -106,9 +102,9 @@ public class AssertionSteps extends BaseSteps {
 
     }
 
-    @Then("for a clicked dropdown item '([^\"]*)' there is a corresponding log line")
+    @Then("for a clicked dropdown item '([^\"]*)' there should be a corresponding log line")
     public void logLineShouldCorrespondWithActions(DropdownSelect value) {
-        elements = TestContext.getActualPage().getSectionItems(DROPDOWN_OPTIONS);
+        List<WebElement> elements = TestContext.getActualPage().getSectionItems(DROPDOWN_OPTIONS);
         WebElement item = getSpecificItem(value, elements);
         if (!(item.isSelected())) {
             item.click();
@@ -147,7 +143,7 @@ public class AssertionSteps extends BaseSteps {
 
     @Then("'([^\"]*)' droplist contains values")
     public void userTypeDroplistShouldContainValues(String userName, List<String> expectedList) {
-        elements = ((UserTablePage6) TestContext.getActualPage()).getUserTypeDropdownItems(userName);
+        List<WebElement> elements = ((UserTablePage6) TestContext.getActualPage()).getUserTypeDropdownItems(userName);
         List<String> actualList = new ArrayList<>();
         for (WebElement element : elements) {
             actualList.add(element.getText());
@@ -156,12 +152,4 @@ public class AssertionSteps extends BaseSteps {
     }
 }
 
-
-//    Number | User             | Description                  |
-//            | 1      | Roman            | Lorem ipsum                  |
-//            | 2      | Sergey Ivan      | Lorem ipsum                  |
-//            | 3      | Vladzimir        | Lorem ipsum                  |
-//            | 4      | Helen Bennett    | Lorem ipsum some description |
-//            | 5      | Yoshi Tannamuri  | Lorem ipsum some description |
-//            | 6      | Giovanni Rovelli | Lorem ipsum some description |
 

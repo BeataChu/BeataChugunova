@@ -1,9 +1,9 @@
 package hw6.entities;
 
-import hw6.pageObjects.BasePage6;
+import hw6.page_objects.BasePage6;
 import org.openqa.selenium.WebDriver;
 
-// TODO This class should be in the test scope
+// TODO This class should be in the test scope - fixed
 public class TestContext {
 
     private static WebDriver driver;
@@ -28,8 +28,5 @@ public class TestContext {
         actualPage = basePage6;
     }
 
-//    public static void setPageNull(){
-//        actualPage = null;
-//    }
 }
 

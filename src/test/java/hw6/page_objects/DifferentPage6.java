@@ -1,6 +1,6 @@
-package hw6.pageObjects;
+package hw6.page_objects;
 
-import hw6.enums.Location;
+import hw6.page_objects.enums.Location;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,6 +30,10 @@ public class DifferentPage6 extends BasePage6 {
             instance = new DifferentPage6();
         }
         return instance;
+    }
+
+    public static void wipeInstance(){
+        instance = null;
     }
 
     public List<WebElement> getSectionItems(Location location) {

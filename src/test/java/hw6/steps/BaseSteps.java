@@ -1,8 +1,8 @@
 package hw6.steps;
 
 import hw6.entities.TestContext;
-import hw6.enums.Labels.BaseLabel;
-import hw6.pageObjects.HomePage6;
+import hw6.page_objects.labels.BaseLabel;
+import hw6.page_objects.HomePage6;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
