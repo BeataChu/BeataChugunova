@@ -1,6 +1,5 @@
 package hw4.pages;
 
-// TODO Unused imports - fixed
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
